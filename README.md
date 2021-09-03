@@ -43,7 +43,7 @@ Things you may want to cover:
 ## 設計書
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+<https://docs.google.com/spreadsheets/d/1G-pKFDLOXpwd3mDtmnWhKFv2MtUvyk2O2sISu1JMxr0/edit#gid=566224576>
 
 ## 開発環境
 - OS：Linux(CentOS)
