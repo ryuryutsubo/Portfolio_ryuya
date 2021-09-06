@@ -1,44 +1,26 @@
 # README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# <QUIZ>
+# Answer it
 
 ## サイト概要
-クイズ投稿サイト
-会員が自由にクイズを投稿しそのクイズに挑戦できる暇つぶしサイト
+- クイズ投稿サイト
+- 会員が自由にクイズを投稿しそのクイズに挑戦できる暇つぶしサイト
+- 投稿されたクイズがタイムラインに流れて来て、いつでも挑戦することが出来る
+- 各投稿にはコメントやいいねをする事が出来る
+- ユーザーのフォロー機能に対応しており、気に入ったユーザーをフォロー出来る
+- 人気のクイズをランキング形式で見ることが出来る(いいね数に応じたランキング)
 
 ### サイトテーマ
-誰でも気軽にクイズに挑戦出来たり、クイズを作成できる新しいSNS
+- 誰でも気軽にクイズに挑戦出来たり、クイズを作成できる新しいSNS
 
 ### テーマを選んだ理由
-こういったサイトがあると、暇な時にも脳トレになり親が子供にも勧めやすいと考えたから
+- こういったサイトがあると、暇な時にも脳トレになり親が子供にも勧めやすいと考えた
 
 ### ターゲットユーザ
-クイズ好きな若者(10代～20代)
+- クイズ好きな若者(10代～20代)
 
 ### 主な利用シーン
-主に暇つぶしに使う、新しいsns
+- 10代～20代の若者がコミュニケーションツール＋クイズというエンターテインメントのアプリケーションとして日常的に使用する。
+-
 
 ## 設計書
 
