@@ -1,0 +1,30 @@
+<%= render "layouts/background" %>
+<div class='col-md-6 offset-md-3'>
+  <h2>ユーザー一覧</h2>
+  <div class="card-list-container py-5 ">
+    <div class="card w-100 mx-auto mt-4 shadow-lg">
+<table class='table'>
+
+  <thead>
+    <tr>
+      <th>アイコン</th>
+      <th>ニックネーム</th>
+      <th>プロフィール</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
+        <td><%= user.name %></td>
+        <td><%= user.profile %></td>
+        <td><%= link_to '詳細', user_path(user), class: "user_#{user.id}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>

@@ -1,0 +1,25 @@
+
+<%= render "layouts/background" %>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>プロフィール編集</h2>
+    <%= form_with model:@user, local:true do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control name" %>
+      </div>
+     <div class="form-group">
+        <%= f.label :image %><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"col-2 rounded-circle";%>
+        <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :Profile %>
+        <%= f.text_area :profile, class: "form-control introduction" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

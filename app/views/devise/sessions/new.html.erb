@@ -1,4 +1,8 @@
-<h2>Log in</h2>
+<%= render "layouts/background" %>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -24,3 +28,6 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>

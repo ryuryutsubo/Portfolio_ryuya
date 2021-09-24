@@ -1,10 +1,35 @@
+<%= render "layouts/background" %>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>投稿</h1>
+<% if @post_image.errors.any? %>
+  <%= @post_image.errors.count %>件のエラーが発生しました
+  <% @post_image.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <%= form_with model: @post_image, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
+  <div class="form-group">
+   <h4>画像</h4>
+   <%= f.attachment_field :image %>
+  </div>
+  <div class="form-group ">
   <h4>クイズ</h4>
   <%= f.text_area :quiz %>
+  </div>
+  <div class="form-group">
   <h4>ヒント</h4>
- <%= f.text_field :hint %>
-  <%= f.submit '投稿' %>
+  <%= f.text_field :hint %>
+  </div>
+  <div class="form-group">
+  <h4>解答</h4>
+  <%= f.text_area :answer %>
+  </div>
+  <div class="form-group">
+  <%= f.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>
+</div>
+</div>
+</div>
