@@ -1,0 +1,4 @@
+DB_USERNAME="root"
+DB_PASSWORD="tsuboryu0529"
+DB_HOST="rds-mysql-server.cfxba1gbqfam.ap-northeast-1.rds.amazonaws.com"
+DB_DATABASE="Answer It"
