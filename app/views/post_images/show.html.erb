@@ -1,5 +1,7 @@
 <%= render "layouts/background" %>
-<div>
+<div class='container w-auto mx-auto mt-4'>
+  <div class="card-list-container py-5 ">
+    <div class="card w-auto mx-auto mt-4 shadow-lg">
   <%= attachment_image_tag @post_image, :image %>
   <p>ユーザーネーム：<%= @post_image.user.name %></p>
   <p>クイズ：<%= @post_image.quiz %></p>
@@ -22,25 +24,43 @@
       <% end %>
     </p>
   <% end %>
-</div>
 
-<div>
+
+
 <p>コメント件数：<%= @post_image.post_comments.count %></p>
-<% @post_image.post_comments.each do |post_comment| %>
-  <%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <%= post_comment.user.name %>
-  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-  <% if post_comment.user == current_user %>
-  <div>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>アイコン</th>
+      <th>ニックネーム</th>
+      <th>コメント</th>
+      <th>日付</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-    <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
-  </div>
+<tbody>
+<% @post_image.post_comments.each do |post_comment| %>
+<tr>
+  <td><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"rounded-circle";  %></td>
+  <td><%= post_comment.user.name %></td>
+  <td><%= post_comment.comment %></td>
+  <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+  <td>
+    <% if post_comment.user == current_user %>
+　  <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, class: 'btn btn-danger'  %>
+　</td>
+</tr>
   <% end %>
 <% end %>
-</div>
-<div>
+</tbody>
+</table>
+
+
 <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
   <%= f.submit "送信する" %>
 <% end %>
+</div>
+</div>
 </div>
