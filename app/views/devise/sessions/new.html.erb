@@ -1,17 +1,18 @@
 <%= render "layouts/background" %>
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-<h2>ログイン</h2>
-
+<div class='container w-auto mx-auto mt-4'>
+  <div class="container w-50 mx-auto mt-4 ">
+<h1 class="row justify-content-md-center">ログイン</h1>
+</div>
+<div class="card-list-container py-5 ">
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 

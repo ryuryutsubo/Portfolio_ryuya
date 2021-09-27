@@ -1,8 +1,10 @@
 <%= render "layouts/background" %>
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-<h1>投稿</h1>
+<div class='container w-auto mx-auto mt-4'>
+  <div class="container w-50 mx-auto mt-4 ">
+<h1 class="row justify-content-md-center">投稿</h1>
+</div>
+<div class="card-list-container py-5 ">
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
 <% if @post_image.errors.any? %>
   <%= @post_image.errors.count %>件のエラーが発生しました
   <% @post_image.errors.full_messages.each do |message| %>
@@ -14,18 +16,19 @@
    <h4>画像</h4>
    <%= f.attachment_field :image %>
   </div>
-  <div class="form-group ">
+  <div class="form-group">
   <h4>クイズ</h4>
-  <%= f.text_area :quiz %>
+  <%= f.text_area :quiz, class: "form-control"  %>
   </div>
   <div class="form-group">
   <h4>ヒント</h4>
-  <%= f.text_field :hint %>
+  <%= f.text_field :hint, class: "form-control"  %>
   </div>
   <div class="form-group">
   <h4>解答</h4>
-  <%= f.text_area :answer %>
+  <%= f.text_area :answer, class: "form-control"  %>
   </div>
+  <div class="row justify-content-md-center">
   <div class="form-group">
   <%= f.submit class: 'btn btn-primary' %>
   </div>
@@ -33,3 +36,5 @@
 </div>
 </div>
 </div>
+</div>
+

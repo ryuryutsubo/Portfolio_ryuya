@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.all
   end
+
   def show
     @user = User.find(params[:id])
     @post_images = @user.post_images.page(params[:page]).reverse_order
@@ -30,11 +30,9 @@ class UsersController < ApplicationController
     @users = user.follower_user.page(params[:page]).per(3).reverse_order
   end
 
-
   private
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :profile)
   end
-
 end

@@ -1,25 +1,26 @@
 <%= render "layouts/background" %>
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-<h2>新規登録</h2>
-
+<<div class='container w-auto mx-auto mt-4'>
+<div class="container w-50 mx-auto mt-4 ">
+<h1 class="row justify-content-md-center">新規登録</h1>
+</div>
+<div class="card-list-container py-5 ">
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :名前 %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -27,13 +28,17 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :パスワード確認 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_field :profile, autofocus: true %>
+    <%= f.label :自己紹介 %><br />
+    <%= f.text_field :profile, autofocus: true, class: "form-control introduction" %>
+  </div>
+  <div class="field">
+    <%= f.label :プロフィール画像 %><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class:"col-2 rounded-circle";%>
+        <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
   </div>
 
   <div class="actions">
@@ -43,6 +48,7 @@
 
 <%= render "devise/shared/links" %>
 
+</div>
 </div>
 </div>
 </div>

@@ -2,6 +2,7 @@ class PostImagesController < ApplicationController
   def new
     @post_image = PostImage.new
   end
+
   def create
     @post_image = PostImage.new(post_image_params)
     @post_image.user_id = current_user.id
@@ -10,20 +11,17 @@ class PostImagesController < ApplicationController
     else
       render :new
     end
-
   end
 
   def index
-   user_ids = current_user.following_user.pluck(:id)
-   user_ids.push(current_user.id)
-   @post_images = PostImage.where(user_id: user_ids).order(created_at: :desc)
-   
+    user_ids = current_user.following_user.pluck(:id)
+    user_ids.push(current_user.id)
+    @post_images = PostImage.where(user_id: user_ids).order(created_at: :desc)
   end
 
   def show
     @post_image = PostImage.find(params[:id])
     @post_comment = PostComment.new
-
   end
 
   def destroy
@@ -33,12 +31,10 @@ class PostImagesController < ApplicationController
   end
 
   def ranking
-
-    @post_images =PostImage.find(Favorite.group(:post_image_id).order('count(post_image_id) desc').limit(3).pluck(:post_image_id))
-
+    @post_images = PostImage.find(Favorite.group(:post_image_id).order('count(post_image_id) desc').limit(3).pluck(:post_image_id))
   end
 
-   private
+  private
 
   def post_image_params
     params.require(:post_image).permit(:hint, :image, :quiz, :answer, :user)

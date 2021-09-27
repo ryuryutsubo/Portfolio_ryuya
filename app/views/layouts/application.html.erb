@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Quizapp</title>
+    <title>Answer It</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,7 +17,7 @@
         <span class="navbar-toggler-icon"></span>
        </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-         <<ul class="nav nav-tabs ml-auto">
+         <ul class="nav nav-tabs ml-auto">
            <% if user_signed_in? %>
              <li class="nav-item">
                <%= link_to 'ユーザー一覧',users_path, class: 'nav-link text-light'%>
