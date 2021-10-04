@@ -4,13 +4,22 @@ class PostImagesController < ApplicationController
   end
 
   def create
-    @post_image = PostImage.new(post_image_params)
-    @post_image.user_id = current_user.id
-    if @post_image.save
+    post_image = PostImage.new(post_image_params)
+    post_image.user_id = current_user.id
+
+    if post_image.save
+
+    tags = Vision.get_image_data(post_image.image)
+    binding.pry
+    tags.each do |tag|
+      post_image.tags.create(name: tag)
+    end
+
       redirect_to post_images_path
     else
       render :new
     end
+
   end
 
   def index
@@ -27,7 +36,7 @@ class PostImagesController < ApplicationController
   def destroy
     post_image = PostImage.find(params[:id])
     post_image.destroy
-    redirect_to post_images_path
+    redirect_to user_path(current_user.id)
   end
 
   def ranking

@@ -24,7 +24,10 @@
       <% end %>
     </p>
   <% end %>
-
+  <div class="tag-box">
+<% @post_image.tags.each do |tag| %>
+  <span class="label"><%= tag.name %></span>
+<% end %>
 
 
 <p>コメント件数：<%= @post_image.post_comments.count %></p>
