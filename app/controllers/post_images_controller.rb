@@ -10,7 +10,6 @@ class PostImagesController < ApplicationController
     if post_image.save
 
     tags = Vision.get_image_data(post_image.image)
-    binding.pry
     tags.each do |tag|
       post_image.tags.create(name: tag)
     end
