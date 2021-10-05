@@ -74,7 +74,7 @@
           </p>
           <p class="card-text">ヒント：<%= post_image.hint %></p>
           <span><i class="fas fa-user"></i> By <%= post_image.user.name %> ｜ </span>
-          <% if current_user != @user %>
+          <% if @user.id == current_user.id %>
           <span><%= link_to '削除する', post_image_path(post_image.id),method: :delete, "data-confirm"=>"本当に消しますか？" %> | </span>
           <% end %>
           <span><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %> | </span>
